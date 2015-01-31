@@ -53,6 +53,16 @@ title=JBake-Versuche
 
 ![Browser](/images/browser-title.png)
 
+Mini-Icon ersetzen
+------------------
+
+* dpicon.png kopieren nach ./assets/dpicon.png
+* Editieren von templates/header.gsp: favicon.ico -> dpicon.png
+* `convert assets/dpicon.png ./assets/favicon.ico`
+* `jbake`
+* `jbake -s`
+* <http://localhost:8820/> ... Firefox zeigt nun das neue Bildchen an, Chrome bleibt beim alten!
+
 Bestehende JBake-Sites
 ----------------------
 
