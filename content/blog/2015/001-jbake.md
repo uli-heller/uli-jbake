@@ -33,6 +33,14 @@ Erster Artikel
 * `jbake -s`
 * <http://localhost:8820/> zeigt den ersten Artikel an
 
+Beispielartikel entfernen
+-------------------------
+
+* `git rm -f content/blog/2013`
+* `jbake`
+* `jbake -s`
+* <http://localhost:8820/> zeigt nur noch den ersten Artikel an
+
 
 Bestehende JBake-Sites
 ----------------------
