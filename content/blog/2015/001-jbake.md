@@ -1,4 +1,4 @@
-title=JBake
+title=JBake-Versuche
 date=2015-01-31
 type=post
 tags=blog
@@ -41,6 +41,17 @@ Beispielartikel entfernen
 * `jbake -s`
 * <http://localhost:8820/> zeigt nur noch den ersten Artikel an
 
+Titel
+-----
+
+Als Titel im Browser-Fenster wird das Feld "title" der Metadaten des aktuellen Artikels angezeigt:
+
+```
+title=JBake-Versuche
+...
+```
+
+![Browser](/images/browser-title.png)
 
 Bestehende JBake-Sites
 ----------------------
