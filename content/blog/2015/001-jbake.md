@@ -8,7 +8,7 @@ status=published
 JBake
 =====
 
-Heute habe ich ein wenig mit [JBake](http://jbake.org) herumgespielt. Möglicherweise wird das als Ersatz für meine [Octopress](http://octropress.org)-Installation dienen.
+Heute habe ich ein wenig mit [JBake](http://jbake.org) herumgespielt. Möglicherweise wird das als Ersatz für meine [Octopress](http://octopress.org)-Installation dienen.
 
 [Grain](http://sysgears-com/grain) sieht optisch fast ein wenig besser aus, allerdings scheint es nicht ganz so verbreitet zu sein wie JBake.
 
