@@ -13,7 +13,7 @@ Heute habe ich ein wenig mit [JBake](http://jbake.org) herumgespielt. Möglicher
 [Grain](http://sysgears-com/grain) sieht optisch fast ein wenig besser aus, allerdings scheint es nicht ganz so verbreitet zu sein wie JBake.
 
 Start
------
+------------
 
 * JBake-2.3.2 herunterladen und installieren
 * Neues Verzeichnis anlegen: uli-jbake
@@ -22,6 +22,14 @@ Start
 * `jbake`
 * `jbake -s`
 * <http://localhost:8820/> zeigt den Beispielinhalt an
+
+### Optional: Eigene Version bauen
+
+* Maven3 installieren
+* JBake klonen von GitHub: `git clone git@github.com:jbake-org/jbake.git`
+* `cd jbake`
+* `mvn package`
+* Die erzeugte Version liegt dann im Verzeichnis "dist"
 
 Erster Artikel
 --------------
@@ -69,6 +77,20 @@ Bild-Ablage
 Normalerweise müssen bei JBake die Bilder unterhalb von "/assets/images" abgelegt werden. Das passt mir persönlich garnicht, weil ich üblicherweise meine MD-Dateien mit relativen Bildpfaden versehe. Dazu müssen die Bilder dann bspw. unter content/blog/2015/images liegen. Leider kopiert JBake diese Bilder dann nicht in den "output"-Ordner, so dass sie via Browser nicht angezeigt werden können.
 
 Abhilfe: Eigenes Skript namens "uli-jbake.sh", welches auch alle Bild-Dateien von "content" nach "output" kopiert.
+
+Markdown-Umbruch
+----------------
+
+Mir persönlich gefallen die langen Zeilen
+in vielen Markdown-Dokumenten überhaupt nicht.
+Ich bevorzuge "kurze Zeilen", deren Umbruch beim
+Markdown-HTML-Rendern ignoriert wird. Für einen
+Absatz füge ich dann Leerzeilen ein.
+
+Aktivieren kann man das via "markdown.extensions" in "jbake.properties".
+
+* markdown.extensions=HARDWRAPS,AUTOLINKS,FENCED_CODE_BLOCKS,DEFINITIONS ... Standard-Einstellungen bei jbake-2.3.2
+* markdown.extensions=ALL,-HARDWRAPS ... geht nur mit "meiner" Version von jbake-2.3.2
 
 Bestehende JBake-Sites
 ----------------------
