@@ -13,7 +13,7 @@ Heute habe ich ein wenig mit [JBake](http://jbake.org) herumgespielt. Möglicher
 [Grain](http://sysgears-com/grain) sieht optisch fast ein wenig besser aus, allerdings scheint es nicht ganz so verbreitet zu sein wie JBake.
 
 Start
-------------
+-----
 
 * JBake-2.3.2 herunterladen und installieren
 * Neues Verzeichnis anlegen: uli-jbake
@@ -91,6 +91,32 @@ Aktivieren kann man das via "markdown.extensions" in "jbake.properties".
 
 * markdown.extensions=HARDWRAPS,AUTOLINKS,FENCED_CODE_BLOCKS,DEFINITIONS ... Standard-Einstellungen bei jbake-2.3.2
 * markdown.extensions=ALL,-HARDWRAPS ... geht nur mit "meiner" Version von jbake-2.3.2
+
+AsciiDoc und Callout-Icons
+--------------------------
+
+In AsciiDoc funktionieren die CalloutIcons nicht richtig:
+
+----
+
+![AsciiDoc Callout KO](./images/asciidoc-callout-ko.png)
+
+----
+
+Zur Korrektur sind diese Schritte nötig:
+
+* Herunterladen der CalloutIcons und speichern in assets/images/icons/callouts
+* Erweitern der AsciiDoc-Dokumente um
+    * :icons:
+    * :icondir:/images/icons
+
+Mit diesen beiden Korrekturen sehen die CalloutIcons dann so aus:
+
+----
+
+![AsciiDoc Callout OK](./images/asciidoc-callout-ok.png)
+
+----
 
 Bestehende JBake-Sites
 ----------------------
