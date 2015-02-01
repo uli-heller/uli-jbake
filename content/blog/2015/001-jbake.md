@@ -51,7 +51,7 @@ title=JBake-Versuche
 ...
 ```
 
-![Browser](/images/browser-title.png)
+![Browser](./images/browser-title.png)
 
 Mini-Icon ersetzen
 ------------------
@@ -62,6 +62,13 @@ Mini-Icon ersetzen
 * `jbake`
 * `jbake -s`
 * <http://localhost:8820/> ... Firefox zeigt nun das neue Bildchen an, Chrome bleibt beim alten!
+
+Bild-Ablage
+-----------
+
+Normalerweise müssen bei JBake die Bilder unterhalb von "/assets/images" abgelegt werden. Das passt mir persönlich garnicht, weil ich üblicherweise meine MD-Dateien mit relativen Bildpfaden versehe. Dazu müssen die Bilder dann bspw. unter content/blog/2015/images liegen. Leider kopiert JBake diese Bilder dann nicht in den "output"-Ordner, so dass sie via Browser nicht angezeigt werden können.
+
+Abhilfe: Eigenes Skript namens "uli-jbake.sh", welches auch alle Bild-Dateien von "content" nach "output" kopiert.
 
 Bestehende JBake-Sites
 ----------------------
