@@ -97,4 +97,3 @@ cd ../git-2.2.2
 # Anpassungen an debian/diff/* vornehmen
 dpkg-buildpackage
 ```
-
