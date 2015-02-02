@@ -106,11 +106,20 @@ In AsciiDoc funktionieren die CalloutIcons nicht richtig:
 Zur Korrektur sind diese Schritte nötig:
 
 * Herunterladen der CalloutIcons und speichern in assets/images/icons/callouts
-* Erweitern der AsciiDoc-Dokumente um
+* Setzen der AsciiDoc-Dokument-Attribute
+    * icons
+    * icondir=/images/icons
+
+Das Setzen der AsciiDoc-Dokument-Attribute geht
+
+* entweder im Dokument mit
+
     * :icons:
     * :icondir:/images/icons
 
-Mit diesen beiden Korrekturen sehen die CalloutIcons dann so aus:
+* oder in jbake.properties mit
+
+    * asciidoctor.attributes=icons,iconsdir=/images/icons,source-highlighter=prettify
 
 ----
 
