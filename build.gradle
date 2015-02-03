@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        //mavenLocal() // needed to use the local JBake 2.3.0 build
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2'
+        classpath 'org.asciidoctor:asciidoctorj:1.5.1'
+        classpath 'org.freemarker:freemarker:2.3.19'
+        classpath 'org.jbake:jbake-core:2.3.2'
+        classpath 'org.pegdown:pegdown:1.4.1'
+    }
+}
+
+apply plugin: 'me.champeau.jbake'
+apply plugin: 'jetty'
+
+jbake {
+    input = new File(".")
+    output = new File("$buildDir/jbake")
+    clearCache = true
+}
+
+jettyRun {
+    httpPort = 8820
+    contextPath = 'blog'
+    webAppSourceDirectory = file("$buildDir/jbake")
+}
+
+// Re-generate content using JBake before launching the local Jetty server.
+jettyRun.dependsOn(jbake)
+
