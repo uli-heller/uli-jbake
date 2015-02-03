@@ -3,14 +3,14 @@ buildscript {
         //mavenLocal() // needed to use the local JBake 2.3.0 build
         mavenCentral()
         jcenter()
-	maven { url "${projectDir}/gradle/local-mvn-repo" }
+	maven { url "https://raw.github.com/uli-heller/jbake/mvn-repo/" }
     }
 
     dependencies {
         classpath 'me.champeau.gradle:jbake-gradle-plugin:0.2'
         classpath 'org.asciidoctor:asciidoctorj:1.5.1'
         classpath 'org.freemarker:freemarker:2.3.19'
-        classpath 'org.jbake:jbake-core:2.3.2-uli1'
+        classpath 'org.jbake:jbake-core:2.3.2-uli2'
         classpath 'org.pegdown:pegdown:1.4.2'
     }
 }
