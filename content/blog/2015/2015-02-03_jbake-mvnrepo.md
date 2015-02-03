@@ -39,6 +39,7 @@ Durchführen einer Veröffentlichung
 1. Versionsnummer hochzählen
     * build.gradle
     * pom.xml (... eigentlich überflüssig)
+    * `git commit -m "New version 2.3.2-uli2"`
 2. Build durchführen und Version erzeugen: `./gradlew clean uploadArchives`
 3. Version hochladen zu GitHub
     * `cd mvn-repo`
@@ -54,6 +55,12 @@ dieser Wert angegeben wird:
 
 * https://raw.github.com/${githubAccount}/${githubProject}/mvn-repo/
 * https://raw.github.com/uli-heller/jbake/mvn-repo/
+
+Links
+-----
+
+* [Mein Fork von JBake](https://github.com/uli-heller/jbake/tree/v2.3.2-uli)
+* [Meine Anwendung von JBake](https://github.com/uli-heller/uli-jbake)
 
 Quellen
 -------
