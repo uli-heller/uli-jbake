@@ -1,3 +1,5 @@
+ext.uliContextPath = '/blog';
+
 buildscript {
     repositories {
         //mavenLocal() // needed to use the local JBake 2.3.0 build
@@ -25,11 +27,12 @@ jbake {
     clearCache = true
     //configuration['render.tag'] = 'true'
     //configuration['markdown.extensions']='ALL,-HARDWRAPS'
+    configuration['asciidoctor.attributes']="icons,iconsdir=${uliContextPath}/images/icons,source-highlighter=prettify" as String
 }
 
 jettyRun {
     httpPort = 8820
-    contextPath = 'blog'
+    contextPath = uliContextPath
     webAppSourceDirectory = file("$buildDir/jbake")
 }
 
