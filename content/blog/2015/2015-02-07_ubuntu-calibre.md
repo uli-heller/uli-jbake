@@ -1,5 +1,5 @@
 title=Calibre: Version 2.19 unter Ubuntu-14.04
-date=2015-02-03
+date=2015-02-07
 type=post
 tags=ubuntu
 status=published
@@ -7,6 +7,20 @@ status=published
 
 Calibre: Version 2.19 unter Ubuntu-14.04
 =========================================
+
+Bei Calibre gibt es diese Einspieloptionen:
+
+* Paket von den Ubuntu-Repos: Das ist dann die Version 1.25. Sie ist uralt
+  und unterstützt meinen Kindle nicht
+* Quelltexte von <http://calibre-book.com>: Die erfordern diverse Versionen
+  von Dritt-Paketen, die unter Ubuntu-14.04 so nicht verfügbar sind
+* Binärpakete von <http://calibre-book.com>: Die werden teilweise unter der
+  Benutzerkennung "root" ausgeführt, gefällt mir auch nicht.
+
+Letztlich habe ich in den "sauren Apfel" gebissen und die Binärpakete
+verwendet. Allerdings habe ich sie in einem LXC-Container eingespielt und
+dann auf mein Desktop-System umkopiert. So lief zumindest auf dem Desktop
+nichts unter "root".
 
 Die Version 2.19 habe ich wie folgt unter Ubuntu-14.04 eingespielt:
 
@@ -24,6 +38,8 @@ Die Version 2.19 habe ich wie folgt unter Ubuntu-14.04 eingespielt:
 8. Jetzt kann das Installationsverzeichnis auf das Hostsystem kopiert werden:
    `sudo cp -a .../calibre/rootfs/opt/calibre /opt`
 9. Funktionstest: `/opt/calibre/calibre` -> sieht gut aus!
+10. Container löschen:
+   `sudo lxc-destroy -n calibre`
 
 Links
 -----
