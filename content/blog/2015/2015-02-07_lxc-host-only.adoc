@@ -1,0 +1,49 @@
+title=LXC: Host-only Netzwerk
+date=2015-02-07
+type=post
+tags=LXC
+status=draft
+~~~~~~
+
+= LXC: Host-only Netzwerk
+Uli Heller <uli.heller@daemons-point.com>
+v0.1, 2015-02-07
+
+== Manuelle Schritte
+
+1. Root: `sudo -s`
+2. Auf Host-System ausführen:
++
+[source,sh]
+----
+LXC_SRC=ubuntu1404-64                                                        # <1>
+LXC_NEW=host-only                                                            # <2>
+brctl addbr lxcbr1                                                           # <3>
+ifconfig lxcbr1 10.2.2.1 netmask 255.255.255.0 up                            # <4>
+lxc-clone -B btrfs "${LXC_SRC}" "${LXC_NEW}"                                 # <5>
+sed -i s/lxcbr0/lxcbr1/ "/var/lib/lxc/${LXC_NEW}/config"                     # <6>
+sed -i "s/${LXC_SRC}/${LXC_NEW}/" "/var/lib/lxc/${LXC_NEW}/rootfs/etc/hosts" # <7>
+rm "/var/lib/lxc/${LXC_NEW}/rootfs/etc/resolv.conf"                          # <8>
+sed -i "/eth0/d" "/var/lib/lxc/${LXC_NEW}/rootfs/etc/network/interfaces"     # <9>
+cat <<'EOF' >>"/var/lib/lxc/${LXC_NEW}/rootfs/etc/network/interfaces"
+iface eth0 inet static
+    address 10.2.2.10/24
+    gateway 10.2.2.1
+EOF
+----
+<1> Name des Ausgangs-LXC-Containers
+<2> Name des neuen LXC-Containers
+<3> Brücke einrichten
+<4> IP-Adresse vergeben
+<5> Neuen LXC-Container erzeugen
+<6> Externe Konfiguration des neuen LXC-Containers anpassen
+<7> Interne Konfiguration des neuen LXC-Containers anpassen: /etc/hosts
+<8> Interne Konfiguration des neuen LXC-Containers anpassen: /etc/resolv.conf
+<9> Interne Konfiguration des neuen LXC-Containers anpassen: /etc/network/interfaces
++
+3. LXC-Container starten: `lxc-start -n host-only`
+4. Tests
+    * LXC-Container ->ssh-> Host: Geht
+    * Host ->ssh-> LXC-Container: Geht
+    * LXC-Container - Betriebssystem-Update: Geht, apt-cacher-ng vom Host wird genutzt
+    * LXC-Container -> Internet: Geht nicht
