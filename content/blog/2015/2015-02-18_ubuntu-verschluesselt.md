@@ -35,13 +35,13 @@ Auf dem Server:
 * `sudo update-initramfs -u`
 * `sudo cp /etc/initramfs-tools/root/.ssh/id_rsa /tmp/id_rsa`
 * `sudo chown uli.uli /tmp/id_rsa`
-* `sudo sh -c "echo GRUB_RECORDFAIL_TIMEOUT=2 >>/etc/default/grub"
+* `sudo sh -c "echo GRUB_RECORDFAIL_TIMEOUT=2 >>/etc/default/grub"`
 * `sudo update-grub`
 
 Auf dem Client:
 
-* `scp uli@{server}:/tmp/id_rsa ~/.ssh/id_rsa_server`
-* `ssh uli@{server} rm /tmp/id_rsa`
+* `scp uli@{myfileserver}:/tmp/id_rsa ~/.ssh/id_rsa_server`
+* `ssh uli@{myfileserver} rm /tmp/id_rsa`
 
 Boot-Vorgang
 ------------
@@ -56,6 +56,7 @@ Weitere SSH-Schlüssel freischalten
 1. Einloggen beim {myfileserver}
 2. Wechsel nach /etc/initramfs-tools/root/.ssh
 3. Erweitern von "authorized_keys"
+4. `sudo update-initramfs -u`
 
 Dateien
 -------
