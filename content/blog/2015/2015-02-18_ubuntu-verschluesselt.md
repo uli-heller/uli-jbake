@@ -72,9 +72,16 @@ ssh-rsa AAAAB3NzaC1yc2EAAAAB...x3ro2Qj/Cv7RGbS4H7jidxUAp6Q+VFQ/eAnpCZDoITmw== ul
 
 ```
 [ "$1" = "prereqs" ] && { exit 0; }
-hostname myfileserver
+HOSTNAME=myfileserver
+hostname "${HOSTNAME}"
 . /scripts/functions
 configure_networking
+for device in /sys/class/net/*; do
+  d="$(basename "$device")"
+  if [ "$d" != "lo" ]; then
+    /bin/ipconfig "::::${HOSTNAME}:$d:all"
+  fi
+done
 ```
 
 ### /etc/default/grub
@@ -130,6 +137,19 @@ Probleme
 
 Aktuell sind keine offenen Probleme bekannt.
 
+#### Kein Hostname bei DHCP in InitramFS
+
+Bei den DHCP-Abfragen innerhalb von InitramFS
+wird kein Hostname an den DHCP-Server übermittelt.
+Dadurch kann der "halb" gestartete Rechner nur
+via IP-Adresse und nicht via Hostname angesprochen
+werden. Das ist besonders dann ungünstig, wenn sich
+die IP-Adresse ändert.
+
+Abhilfe: `/bin/ipconfig ::::myfileserver:eth0:any`
+
+Das sollte so auch in .../networking eingetragen werden!
+
 ### Gelöst
 
 #### Booten direkt von der Konsole scheitert
@@ -146,7 +166,7 @@ Dies hat bei mir geholfen:
 
 #### Abfrage einer IP-Adresse via DHCP scheitert
 
-Die Netzwerkkonfiguration wird per Standardnicht immer vorgenommen,
+Die Netzwerkkonfiguration wird per Standard nicht immer vorgenommen,
 sie muß über ein Skript erzwingen werden:
 
 ```
