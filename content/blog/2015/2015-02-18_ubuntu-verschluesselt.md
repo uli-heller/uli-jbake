@@ -72,14 +72,15 @@ ssh-rsa AAAAB3NzaC1yc2EAAAAB...x3ro2Qj/Cv7RGbS4H7jidxUAp6Q+VFQ/eAnpCZDoITmw== ul
 
 ```
 [ "$1" = "prereqs" ] && { exit 0; }
-HOSTNAME=myfileserver
-hostname "${HOSTNAME}"
+# Don't use HOSTNAME, it will be overwritten by 'configure_networking'
+BOOT_HOSTNAME=myfileserver
+hostname "${BOOT_HOSTNAME}"
 . /scripts/functions
 configure_networking
 for device in /sys/class/net/*; do
   d="$(basename "$device")"
   if [ "$d" != "lo" ]; then
-    /bin/ipconfig "::::${HOSTNAME}:$d:all"
+    /bin/ipconfig "::::${BOOT_HOSTNAME}:$d:all"
   fi
 done
 ```
