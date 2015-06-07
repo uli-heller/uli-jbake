@@ -1,7 +1,7 @@
 title=Ubuntu-Paketbauer mit LXC
 date=2015-02-01
 type=post
-tags=LXC
+tags=lxc
 status=published
 ~~~~~~
 

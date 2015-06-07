@@ -5,7 +5,7 @@ title=Markdown Syntax (von John Gruber)
 date=2004-01-01 00:00
 updated=2012-11-25 00:00
 comments=true
-tags=Markdown
+tags=markdown
 ~~~~~~
 
 Vorbemerkung

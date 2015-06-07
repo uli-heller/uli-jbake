@@ -5,7 +5,7 @@ title=LXC
 date=2014-02-14 07:00
 updated=2014-03-24 10:00
 comments=true
-tags=Linux,Ubuntu,LXC
+tags=linux,ubuntu,lxc
 ~~~~~~
 
 ## Einleitung
