@@ -1,5 +1,5 @@
 type=page
-title="Artikel"
+title=Artikel
 comments=false
 status=published
 date=2015-02-08 07:00
