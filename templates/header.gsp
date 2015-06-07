@@ -29,8 +29,8 @@
     <link rel="icon" type="image/png" href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>dpicon.png">
 
     <!-- highlight.js -->
-    <link rel="stylesheet" href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>js/highlight.js/8.4/styles/default.min.css">
-    <script src="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>js/highlight.js/8.4/highlight.min.js"></script>
+    <link rel="stylesheet" href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>js/highlight.js/8.6/styles/default.min.css">
+    <script src="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>js/highlight.js/8.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
  
   </head>
