@@ -6,7 +6,7 @@ status=draft
 ~~~~~~
 = Ubuntu-Paketbauer mit LXC
 :icons: // for callouts
-:iconsdir: /images/icons
+:iconsdir: ../../images/icons
 Uli Heller
 2015-02-01
 
