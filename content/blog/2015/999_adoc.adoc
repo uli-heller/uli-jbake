@@ -12,7 +12,7 @@ Uli Heller
 
 Dieses Dokument bezieht sich auf Ubuntu-14.04.
 Es setzt voraus, dass LXC erfolgreich installiert wurde.
-Details stehen link:/blog/2015/002-lxc.html[hier].
+Details stehen link:002-lxc.html[hier].
 
 [source,shell]
 ----
