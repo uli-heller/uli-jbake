@@ -25,8 +25,6 @@
 		<%}%>
 	</ul>
 
-        <h2>Themen:</h2>
-        <% alltags.collect{it-> [it.toLowerCase(), it]}.sort{it-> it[0]}.each { lc, tag ->%>	
-          <a href="${tag}.html">${lc}</a> 
-	<%}%>
+        <h4>Themen:</h4>
+<%include "tagcloud.gsp"%>
 <%include "footer.gsp"%>
