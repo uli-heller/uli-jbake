@@ -1,6 +1,56 @@
 #!/bin/sh
 
+D="$(dirname "$0")"
+BN="$(basename "$0")"
 OCTOPRESS_FILE="$1"
+
+if [ ! -s "${OCTOPRESS_FILE}" ]; then
+  echo >&2 "${BN}: Unable to read '${OCTOPRESS_FILE}' - ABORTED"
+  exit 1
+fi
+
+# Extract year, month, day
+YEAR="$(basename "${OCTOPRESS_FILE}"|cut -c1-4)"
+MONTH="$(basename "${OCTOPRESS_FILE}"|cut -c6-7)"
+DAY="$(basename "${OCTOPRESS_FILE}"|cut -c9-10)"
+
+# Extract core name
+CORE="$(basename "${OCTOPRESS_FILE}"|cut -c12-)"
+CORE="$(basename "${CORE}" .md)"
+
+JBAKE_BLOG_DIR="${D}/content/blog/${YEAR}"
+if [ ! -d "${JBAKE_BLOG_DIR}" ]; then
+  mkdir -p "${JBAKE_BLOG_DIR}"
+fi
+
+JBAKE_COMPATIBILITY_DIR="${D}/content/blog/${YEAR}/${MONTH}/${DAY}/${CORE}"
+if [ ! -d "${JBAKE_COMPATIBILITY_DIR}" ]; then
+  mkdir -p "${JBAKE_COMPATIBILITY_DIR}"
+fi
+
+JBAKE_BLOG_FILE="${JBAKE_BLOG_DIR}/$(basename "${OCTOPRESS_FILE}")"
+cp "${OCTOPRESS_FILE}" "${JBAKE_BLOG_FILE}"
+"${D}/octopress2jbake.sh" "${JBAKE_BLOG_FILE}"
+
+(
+cat <<EOF
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta http-equiv="refresh" content="0; url=@BLOG@" />
+  </head>
+</html>
+EOF
+)|sed "s!@BLOG@!../../../$(basename "${JBAKE_BLOG_FILE}" .md).html!"\
+> "${JBAKE_COMPATIBILITY_DIR}/index.html"
+
+exit 0
+
+
+
+
+
+
 
 # Replace 2nd matching line
 {
@@ -68,41 +118,10 @@ sed -i \
   -e 's/title:\s"\(.*\)"/title=\1/'\
   -e "s/author:\s*/author=/"\
   -e "s/comments:\s*/comments=/"\
+  -e "s/categories:\s*/tags=/"\
   -e "s/published:\s*true/status=published/"\
   -e '0,/^---.*/{//d;}' \
   -e '0,/^---.*/s//~~~~~~/' \
   -e 's/^\s*{% endcodeblock %}/```/' \
   -e 's/^\s*{% codeblock \(.*\) lang:\(.*\) %}/\1\n\n``` \2/' \
   "${OCTOPRESS_FILE}"
-
-cat "${OCTOPRESS_FILE}"\
-|(
-  CATEGORIES=0
-  TAGS=
-  while read l; do
-    if [ "$l" = "categories:" ]; then
-      CATEGORIES=1
-      TAGS=""
-    else
-      case "${CATEGORIES}" in
-      "0")
-        echo "$l"
-        ;;
-      "1")
-        if expr "${l}" : "- " >/dev/null; then
-          TAGS="${TAGS},$(echo "${l}"|cut -c3-|tr '[:upper:]' '[:lower:]')" 
-        else
-           echo "tags=$(echo "${TAGS}"|cut -c2-)"
-           echo "$l"
-           CATEGORIES=2
-        fi
-        ;;
-      "2")
-        echo "$l"
-        ;;
-      esac
-    fi
-  done
-) >"${OCTOPRESS_FILE}~"
-
-mv "${OCTOPRESS_FILE}~" "${OCTOPRESS_FILE}"
