@@ -73,6 +73,7 @@ sed -i \
   -e '0,/^---.*/s//~~~~~~/' \
   -e 's/^\s*{% endcodeblock %}/```/' \
   -e 's/^\s*{% codeblock \(.*\) lang:\(.*\) %}/\1\n\n``` \2/' \
+  -e 's/^\s*{% codeblock \(.*\) %}/\1\n\n```/' \
   "${OCTOPRESS_FILE}"
 
 cat "${OCTOPRESS_FILE}"\

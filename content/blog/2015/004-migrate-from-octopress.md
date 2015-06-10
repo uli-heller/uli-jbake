@@ -16,7 +16,7 @@ Im Einzelnen:
 
 * Blog-Übersicht: http://uli-heller.github.io/blog/
 * Archiv: http://uli-heller.github.io/archives/
-* Blog: http://uli-heller.github.io/blog/2014/02/23/git_kuerzen/
+* Blog-Artikel: http://uli-heller.github.io/blog/2014/02/23/git_kuerzen/
 * Artikel: http://uli-heller.github.io/articles/lxc.html
 * Über mich: http://uli-heller.github.io/about/
 * Impressumg: http://uli-heller.github.io/impressum/
@@ -53,5 +53,10 @@ Wir legen in JBake eine Umleitung von archives/index.html nach archive.html:
 </html>
 ```
 
-### Blog
+### Blog-Artikel
 
+Auch wenn sowohl Octopress als auch JBake die Blog-Artikel in Markdown unterstützen, so kann
+man diese dennoch nicht einfach umkopieren, weil:
+
+* es Unterschiede bei den Metadaten gibt (... das ist der "Block" am Beginn der Datei)
+* manche Octopress-Erweiterungen von JBake nicht unterstützt werden (bspw. `{% codeblock %}`)
