@@ -80,30 +80,41 @@ sed -i \
 cat "${OCTOPRESS_FILE}"\
 |(
   CATEGORIES=0
+  FIELDS=1
   TAGS=
   while read l; do
-    if [ "$l" = "categories:" ]; then
-      CATEGORIES=1
-      TAGS=""
-    else
-      case "${CATEGORIES}" in
-      "0")
-        echo "$l"
-        ;;
-      "1")
-        if expr "${l}" : "- " >/dev/null; then
-          TAGS="${TAGS},$(echo "${l}"|cut -c3-|tr '[:upper:]' '[:lower:]')" 
-        else
-           echo "tags=$(echo "${TAGS}"|cut -c2-)"
-           echo "$l"
-           CATEGORIES=2
+    if [ "${FIELDS}" -ne 0 ]; then
+      if [ "$l" = "categories:" ]; then
+        CATEGORIES=1
+        TAGS=""
+      else
+        if expr "${l}" : "#" >/dev/null; then
+           continue
         fi
-        ;;
-      "2")
-        echo "$l"
-        ;;
-      esac
-    fi
+        if expr "${l}" : "~~~~" >/dev/null; then
+           FIELDS=0
+        fi
+        case "${CATEGORIES}" in
+        "0")
+          echo "$l"
+          ;;
+        "1")
+          if expr "${l}" : "- " >/dev/null; then
+            TAGS="${TAGS},$(echo "${l}"|cut -c3-|tr '[:upper:]' '[:lower:]')" 
+          else
+             echo "tags=$(echo "${TAGS}"|cut -c2-)"
+             echo "$l"
+             CATEGORIES=2
+          fi
+          ;;
+        "2")
+          echo "$l"
+          ;;
+        esac
+      fi
+    else # FIELDS
+      echo "$l"
+    fi # FIELDS
   done
 ) >"${OCTOPRESS_FILE}~"
 
