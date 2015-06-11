@@ -3,7 +3,6 @@ author=Uli Heller
 status=published
 title=OpenVPN unter Ubuntu nutzen
 date=2014-12-18 06:00
-#updated=2014-12-18 20:00
 comments=true
 tags=linux,ubuntu,precise,openvpn
 ~~~~~~
@@ -11,7 +10,7 @@ tags=linux,ubuntu,precise,openvpn
 Installation von OpenVPN
 ------------------------
 
-Installation von OpenVPN
+*Listing: Installation von OpenVPN*
 
 ```
 sudo apt-get install openvpn
@@ -20,7 +19,7 @@ sudo apt-get install openvpn
 Konfigurationsdateien von OpenVPN einspielen
 ---------------------------------------------
 
-Konfigurationsdateien von OpenVPN einspielen
+*Listing: Konfigurationsdateien von OpenVPN einspielen*
 
 ```
 mkdir ~/openvpn
@@ -42,7 +41,7 @@ Die Datei "openvpn/uheller.ovpn" enthält die OpenVPN-Konfiguration
 für Windows. Unter Linux kann sie leider nicht direkt verwendet werden,
 ein Start scheitert mit dieser Fehlermeldung:
 
-Fehlermeldung beim OpenVPN-Start
+*Listing: Fehlermeldung beim OpenVPN-Start*
 
 ```
 uli:~/openvpn$ sudo openvpn ~/openvpn/uheller.ovpn
@@ -56,7 +55,7 @@ Mit der vorgenannten Änderung kann OpenVPN gestartet werden, die
 Namensauflösung DNS funktioniert aber nicht. Hierzu sind Ergänzungen
 an der Konfigurationsdatei erforderlich:
 
-Ergänzungen an uheller.ovpn
+*Listing: Ergänzungen an uheller.ovpn*
 
 ```
 script-security 2
@@ -67,7 +66,7 @@ down /etc/openvpn/update-resolv-conf
 OpenVPN starten
 ---------------
 
-OpenVPN starten
+*Listing: OpenVPN starten*
 
 ```
 $ sudo openvpn ~/openvpn/uheller.ovpn
