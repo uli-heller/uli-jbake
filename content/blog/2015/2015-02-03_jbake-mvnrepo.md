@@ -59,7 +59,7 @@ dieser Wert angegeben wird:
 Links
 -----
 
-* [Mein Fork von JBake](https://github.com/uli-heller/jbake/tree/v2.3.2-uli)
+* [Mein Fork von JBake](https://github.com/uli-heller/jbake)
 * [Meine Anwendung von JBake](https://github.com/uli-heller/uli-jbake)
 
 Quellen
