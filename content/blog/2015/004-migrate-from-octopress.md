@@ -21,7 +21,8 @@ Im Einzelnen:
 * Über mich: http://uli-heller.github.io/about/
 * Impressumg: http://uli-heller.github.io/impressum/
 
-### Blog-Übersicht
+Blog-Übersicht
+--------------
 
 Die Blog-Übersicht wird bei Octopress angezeigt mit: <http://uli-heller.github.io/blog/>.
 Bei JBake erfolgt dies mit: <http://..../index.html>.
@@ -37,7 +38,8 @@ Wir legen in JBake eine Umleitung von blog/index.html nach index.html:
 </html>
 ```
 
-### Archiv
+Archiv
+------
 
 Die Blog-Übersicht wird bei Octopress angezeigt mit: <http://uli-heller.github.io/archives/>.
 Bei JBake erfolgt dies mit: <http://..../archive.html>.
@@ -53,10 +55,21 @@ Wir legen in JBake eine Umleitung von archives/index.html nach archive.html:
 </html>
 ```
 
-### Blog-Artikel
+Blog-Artikel
+------------
 
 Auch wenn sowohl Octopress als auch JBake die Blog-Artikel in Markdown unterstützen, so kann
 man diese dennoch nicht einfach umkopieren, weil:
 
 * es Unterschiede bei den Metadaten gibt (... das ist der "Block" am Beginn der Datei)
 * manche Octopress-Erweiterungen von JBake nicht unterstützt werden (bspw. `{% codeblock %}`)
+
+Ich habe ein Skript erstellt, welches die Octopress-Konstrukte in Dinge
+wandelt, mit denen JBake zurecht kommt.
+
+Offene Punkte
+-------------
+
+* Bilder: Anzeige im Blog OK, Anzeige in der Übersicht KO
+* `{% img ...}`
+* `{% include_code ...}`
