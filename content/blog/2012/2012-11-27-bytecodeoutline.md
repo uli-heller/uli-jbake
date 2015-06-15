@@ -60,4 +60,6 @@ Kurztest des Plugins
 * Java-Klasse aus einem bestehenden Eclipse-Projekt selektieren
 * Window -> Show View -> Other -> Java -> Bytecode
 
-{% img /images/java/eclipse/bytecode-outline.png 'Eclipse mit Bytecode-View' %}
+
+![Eclipse mit Bytecode-View](/images/java/eclipse/bytecode-outline.png)
+

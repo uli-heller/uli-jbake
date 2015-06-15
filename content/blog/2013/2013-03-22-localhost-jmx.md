@@ -12,7 +12,9 @@ JMX so aktivieren, dass der Zugriff nur via Localhost möglich ist
 
 Im Java-Umfeld gibt es die JMX-Schnittstelle, die u.a. für's Monitoringittels JCONSOLE verwendet werden kann. Für meine eigenen Java-Prozesse ist das schnell erledigt: Einfach den Java-Prozess starten, dann `jconsole` (ohne Zusatzargument). Es wird eine Liste mit allen meinem Java-Prozessen angezeigt und ich kann einfach den gewünschten auswählen. Danach bekomme ich eine Anzeige ähnlich dieser:
 
-{% img /images/java/jconsole.png %}
+
+!(/images/java/jconsole.png)
+
 
 Dummerweise werden Webanwendungen manchmal mit anderen Benutzern gestartet, die noch dazu recht abgeschottet sind. Da scheitert der vorige Wert für mich - die betreffenden Tomcats erscheinen dann einfach nicht in der Liste. Das ist der Punkt, an dem man gerne die Remote-Schnittstelle über das setzen diverser Java-Properties freischaltet. Dumm dabei: Nun kann netzwerkweit auf die JMX-Schnittstelle zugegriffen werden - sofern man sie nicht zusätzlich abblockt, was auch wieder Aufwand bedeutet.
 

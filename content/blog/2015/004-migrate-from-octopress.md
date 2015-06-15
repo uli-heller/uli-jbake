@@ -67,9 +67,16 @@ man diese dennoch nicht einfach umkopieren, weil:
 Ich habe ein Skript erstellt, welches die Octopress-Konstrukte in Dinge
 wandelt, mit denen JBake zurecht kommt.
 
+Durchführen der Migration
+-------------------------
+
+```
+find {path-to-octopress}/source_posts/ -type f\
+|xargs -n1 ./migrate-octopress-blog-entry.sh
+```
+
 Offene Punkte
 -------------
 
 * Bilder: Anzeige im Blog OK, Anzeige in der Übersicht KO
-* `{% img ...}`
 * `{% include_code ...}`

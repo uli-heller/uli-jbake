@@ -75,6 +75,8 @@ sed -i \
   -e 's/^\s*{% codeblock lang:\(.*\) %}/\n``` \1/' \
   -e 's/^\s*{% codeblock \(.*\) lang:\(.*\) %}/*Listing: \1*\n\n``` \2/' \
   -e 's/^\s*{% codeblock \(.*\) %}/*Listing: \1*\n\n```/' \
+  -e "s/^\s*{% img \(.*\) '\(.*\)' %}/\n![\2](\1)\n/" \
+  -e "s/^\s*{% img \(.*\) %}/\n!(\1)\n/" \
   "${OCTOPRESS_FILE}"
 
 cat "${OCTOPRESS_FILE}"\
