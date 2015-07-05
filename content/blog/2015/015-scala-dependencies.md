@@ -57,3 +57,4 @@ The dependencies can be fixed by modifying the file "project/build.scala":
 ```
 
 Basically, you have to add ' exclude("c3p0","c3p0")' to the dependency "akka-quartz-scheduler".
+I've found this on [stack overflow](http://stackoverflow.com/questions/10958215/how-to-exclude-commons-logging-from-a-scala-sbt-slf4j-project).
