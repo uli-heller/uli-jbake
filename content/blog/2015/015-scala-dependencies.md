@@ -1,4 +1,4 @@
-title=Scala: Dependencie
+title=Scala: Dependencies
 date=2015-07-05
 type=post
 tags=scala
