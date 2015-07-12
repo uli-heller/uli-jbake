@@ -25,3 +25,8 @@ mv GGTS.ini eclipse.ini
 # Jetzt kann Lombok installiert werden
 mv eclipse.ini GGTS.ini
 ```
+
+Anmerkung: Bei der Spring Tool Suite 3.7.0 ist dieses umständliche
+Vorgehen nicht notwendig! Dort bindet sich Lombok direkt in STS.ini
+ein!
+
