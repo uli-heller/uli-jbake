@@ -1,7 +1,7 @@
 title=Calibre: Version 2.19 unter Ubuntu-14.04
 date=2015-02-07
 type=post
-tags=ubuntu
+tags=ubuntu,calibre
 status=published
 ~~~~~~
 
@@ -22,7 +22,7 @@ verwendet. Allerdings habe ich sie in einem LXC-Container eingespielt und
 dann auf mein Desktop-System umkopiert. So lief zumindest auf dem Desktop
 nichts unter "root".
 
-Die Version 2.19 habe ich wie folgt unter Ubuntu-14.04 eingespielt:
+Die Version 2.19 (und auch 2.33) habe ich wie folgt unter Ubuntu-14.04 eingespielt:
 
 1. "Clone" meines Basis-Ubuntu-LXC-Containers erstellen:
    `sudo lxc-clone -B btrfs ubuntu1404-64 calibre`
@@ -32,7 +32,7 @@ Die Version 2.19 habe ich wie folgt unter Ubuntu-14.04 eingespielt:
 4. Produkte nachinstallieren:
    `sudo apt-get install wget python xz-utils`
 5. Installation durchführen:
-   `sudo -v && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | sudo python -c "import sys; main=lambda x:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt')".`
+   `sudo -v && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py | sudo python -c "import sys; main=lambda x:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main('/opt')"`
 6. Nun ist Calibre-2.19 installiert unter "/opt/calibre"
 7. Container beenden: `sudo poweroff`
 8. Jetzt kann das Installationsverzeichnis auf das Hostsystem kopiert werden:
