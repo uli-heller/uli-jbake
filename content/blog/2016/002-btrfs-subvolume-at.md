@@ -43,3 +43,15 @@ btrfs subvolume delete /mnt/lxc/var.lib.lxc/ubuntu1404-64/rootfs
 cd ..
 umount /mnt
 ```
+
+Löschen der Quelldaten:
+
+```
+mount /dev/.../datalv /mnt
+cd /mnt
+ls -a
+# @ apt-cacher-ng lxc
+rm -rf apt-cacher-ng lxc
+cd /
+umount /mnt
+```
