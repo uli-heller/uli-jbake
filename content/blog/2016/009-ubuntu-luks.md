@@ -2,7 +2,7 @@ title=Ubuntu mit Festplattenverschlüsselung
 date=2016-05-18
 type=post
 tags=ubuntu
-status=published
+status=draft
 ~~~~~~
 
 Ubuntu mit Festplattenverschlüsselung installieren
