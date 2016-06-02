@@ -12,12 +12,12 @@ Ausgangslage
 ------------
 
 Ich habe ein Git-Projekt, in dem ich die Konfigurationsdateien
-von diversen Rechnern verwalte. Im Verzeichnis "dropzone" liegen
-die Konfigurationsdateien vom Rechner "dropzone" und im Verzeichnis
-"wdropzone" diejenigen vom Rechner "wdropzone".
+von diversen Rechnern verwalte. Im Verzeichnis "servers/wdropzone" liegen
+die Konfigurationsdateien vom Rechner "wdropzone" und im Verzeichnis
+"servers/dropzone" diejenigen vom Rechner "dropzone".
 
-Jetzt habe ich Änderungen a "wdropzone" gemacht und würde diese
-gerne auf "dropzone" anwenden.
+Jetzt habe ich Änderungen a "servers/wdropzone" gemacht und würde diese
+gerne auf "servers/dropzone" anwenden.
 
 Lösung
 ------
