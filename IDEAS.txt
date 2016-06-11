@@ -1,5 +1,6 @@
-* https://github.com/gregturn/draft-tut-react-and-spring-data-rest
-  React and Spring-Data-REST tutorial
+13 Decks Java Developers Must See to Stay Updated
+* https://dzone.com/articles/13-decks-java-developers-must-see-to-stay-updated
+
 * https://dzone.com/articles/do-not-publish-configuring-tomcat-single-sign-on-w
 
 
