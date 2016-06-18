@@ -3,6 +3,10 @@
 
 * https://dzone.com/articles/do-not-publish-configuring-tomcat-single-sign-on-w
 
+vmtouch - the Virtual Memory Toucher
+* https://hoytech.com/vmtouch/
+vmprobe - Speeding up database queries - Hotter standbys, smoother fail-overs
+* https://vmprobe.com/
 
 ---
 
