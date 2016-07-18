@@ -1,0 +1,48 @@
+title=JSP: Verwendung von Enums
+date=2016-07-18
+type=post
+tags=java
+status=published
+~~~~~~
+
+JSP: Verwendung von Enums
+=========================
+
+Quelle: [Access Enum value using EL with JSTL](http://stackoverflow.com/questions/123598/access-enum-value-using-el-with-jstl) - [Lieblingsantwort](http://stackoverflow.com/a/16692821/959232)
+
+Bei einem meiner Kundenprojekte gibt es jede Menge JSPs, die einen
+Inhalt wie diesen aufweisen:
+
+```
+<c:if test="${form.texts['ProjectType'] != 'CIP / Kaizen'}">
+  ...
+</c:if>
+```
+
+Dabei gefallen mir diese Dinge nicht:
+
+* der linke Teil `form.texts['ProjectType'] entspricht quasi einer
+  Hashmap und ist anfällig gegenüber Tippfehlern
+* der rechte Teil `CIP / Kaizen` entspricht einem Wert eines `Enums`,
+  es wird aber auf einen String-Wert verglichen und somit kann es auch
+  hier leicht zu Tippfehlern kommen
+
+Für mich ist dies die beste Abhilfe:
+
+* der linke Teil wird ersetzt durch Abfrage des Properties
+  vom Projekt: `project.type`
+* der rechte Teil ist komplizierter: `ProjectType.CIP_KAIZEN` funktioniert
+  nicht (... auch nicht mit vorherigem `<%@ page import="org.uli.ProjectType" %>`)
+
+Für den rechten Teil sieht die Lösung dann so aus:
+
+```
+<%@ page import="org.uli.ProjectType" %>`)
+...
+<c:set var="CIP_KAIZEN" value="<%=ProjectType.CIP_KAIZEN%>"/>
+...
+<c:if test="${project.Type != CIP_KAIZEN}">
+  ...
+</c:if>
+```
+
