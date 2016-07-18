@@ -20,3 +20,20 @@ als animiertes GIF bereitstellen.
 * Dateigröße reduzieren: `convert -layers Optimize recorded.gif optimized.gif`
     * recorded.gif: 86M
     * optimized.gif: 371K
+
+Interaktive Auswahl der Region
+------------------------------
+
+### SLOP installieren
+
+```
+apt-get install slop
+```
+
+### Auswahl und Aufnahme
+
+```
+eval $(slop)
+avconv -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y -pix_fmt rgb24 ~/recorded.gif
+convert -layers Optimize ~/recorded.gif ~/optimized.gif`
+```
