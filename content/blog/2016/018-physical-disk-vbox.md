@@ -16,7 +16,6 @@ Grob bin ich so vorgegangen:
 4. Platte in VirtualBox verfügbar machen: `VBoxManage internalcommands createrawvmdk -filename ~/VirtualBox\ VMs/sdc.vmdk -rawdisk /dev/sdc`
 5. VM erzeugen - "Vorhandene Festplatte verwenden" - sdc.vmdk
 
-
 Links:
 
 * [ServerWatch: Using a Physical Hard Drive with a VirtualBox VM](http://www.serverwatch.com/server-tutorials/using-a-physical-hard-drive-with-a-virtualbox-vm.html)
