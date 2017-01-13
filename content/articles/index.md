@@ -3,7 +3,7 @@ title=Artikel
 comments=false
 status=published
 date=2015-02-08 07:00
-updated=2015-02-08 07:00
+updated=2017-01-13 07:00
 ~~~~~~
 
 In diesem Bereich sammle ich Artikel zu einzelnen Themengebieten. Idealerweise enthalten
