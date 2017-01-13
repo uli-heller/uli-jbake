@@ -10,7 +10,7 @@ In diesem Bereich sammle ich Artikel zu einzelnen Themengebieten. Idealerweise e
 die Artikel die Essenz alles Blog-Einträge.
 
 * [Daring Fireball Markdown](daringfireball-markdown.html)
-* [Debian Packaging](debian-packagin.html)
+* [Debian Packaging](debian-packaging.html)
 * [Hetzner Mailserver](hetzner-mailserver.html)
 * [LXC](lxc.html)
 * [UTF8](utf8.html)
