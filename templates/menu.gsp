@@ -17,7 +17,7 @@
             <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>articles/index.html">Artikel</a></li>
             <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>tags/index.html">Themen</a></li>
             <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>about">Über mich</a></li>
-            <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>impressum">Impressum</a></li>
+            <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>impressum/index.html">Impressum</a></li>
             <li><a href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>${config.feed_file}">Subscribe</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
