@@ -39,17 +39,17 @@ muß man sich an diesen Ablauf halten:
 
 Wie löscht man nun einen Kernel? Zunächst muß man die
 Versionsnummer des zu löschenden Kernels ermitteln. In meinem
-Falle möchte ich Version 4.2.0-30 löschenund 4.2.0-34 behalten:
+Falle möchte ich Version 4.2.0-30 löschen und 4.2.0-34 behalten:
 
 ```
 V=4.2.0-30
-dpkg --get-selections linux*${V}*|cut -f1
+dpkg --get-selections "linux*-${V}" "linux*-${V}-*"|cut -f1
 # Kontrolle: Werden die richtigen Pakete angezeigt?
 #  linux-headers-4.2.0-30
 #  linux-headers-4.2.0-30-generic
 #  linux-image-4.2.0-30-generic
 #  linux-image-extra-4.2.0-30-generic
-sudo apt-get purge $(dpkg --get-selections linux*${V}*|cut -f1)
+sudo apt-get purge $(dpkg --get-selections "linux*-${V}" "linux*-${V}-*"|cut -f1)
 # Nochmalige Kontrolle: Sollen die richtigen Pakete deinstalliert werden?
 #  Die folgenden Pakete werden ENTFERNT:
 #    linux-headers-4.2.0-30* linux-headers-4.2.0-30-generic*
