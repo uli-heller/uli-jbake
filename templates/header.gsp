@@ -14,6 +14,7 @@
     <link href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>css/asciidoctor.css" rel="stylesheet">
     <link href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>css/base.css" rel="stylesheet">
     <link href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>css/prettify.css" rel="stylesheet">
+    <link href="<%if (content.rootpath) {%>${content.rootpath}<% } else { %><% }%>css/uli.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -35,5 +36,13 @@
  
   </head>
   <body onload="prettyPrint()">
+    <header role="banner">
+      <div class="container-fluid">
+        <hgroup>
+          <h1><a href="/">Was ich so treibe...</a></h1>
+          <h2>Uli's IT-Blog - Konzeption, Entwicklung, Betrieb</h2>
+        </hgroup>
+      </div>
+    </header>
     <div id="wrap">
    

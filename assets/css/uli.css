@@ -1,0 +1,44 @@
+/* uli.css */
+body > header {
+  font-family:      "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif;
+  background-color: #ffd000; /* a darker yellow */
+  overflow: hidden;          /* without this, the background color doesn't show up */
+}
+
+body > header hgroup {
+  margin-bottom: 1.0em;
+  margin-top:    1.0em;
+}
+
+body > header h1 {
+  font-size:     2.5em;
+  line-height:   1;
+  margin-bottom: 0;
+  margin-top:    0;
+}
+
+body > header h1 a {
+  color:         inherit;  /* Link is invisible */
+}
+
+body > header h2 {
+  font-size:     1.0em;
+  margin-bottom: 0;
+  margin-top:    0;
+}
+
+/* ------------------------- NAVBAR ----------------------------- */
+/* Navbar */
+.navbar-uli {
+  /* yellow is our color */
+  background-color: #FFFF99;
+  border-color: #FFD000;
+  /* no rounded corners */
+  border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+}
+
+/* Size - derived from http://stackoverflow.com/questions/18599778/decreasing-height-of-bootstrap-3-0-navbar */
+.navbar-uli { min-height:28px; height: 28px; }
+.navbar-uli .navbar-brand{ padding: 0px 12px;font-size: 16px;line-height: 28px; }
+.navbar-uli .navbar-nav > li > a {  padding-top: 0px; padding-bottom: 0px; line-height: 28px; }
